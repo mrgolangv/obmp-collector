@@ -1,6 +1,7 @@
 .idea
 cron_scripts/.idea
 build
+cmake*
 deb_package/*.cmake
 rpm_package/*.cmake
 mac_build
