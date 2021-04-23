@@ -927,7 +927,7 @@ void msgBus_kafka::update_eVPN(obj_bgp_peer &peer, std::vector<obj_evpn> &vpn,
                 buf_len += snprintf(buf2, sizeof(buf2),
                                     "add\t%" PRIu64 "\t%s\t%s\t%s\t%s\t%s\t%s\t%" PRIu32 "\t%s\t%s\t%s\t%" PRIu16
                                         "\t%" PRIu32 "\t%s\t%" PRIu32 "\t%" PRIu32 "\t%s\t%s\t%s\t%s\t%d\t%d\t%s\t%" PRIu32
-                                        "\t%d\t%d\t%s:%s\t%d\t%d\t%s\t%s\t%s\t%d\t%s\t%d\t%s\t%" PRIu32 "\t%" PRIu32 "\n",
+                                        "\t%d\t%d\t%s:%s\t%d\t%d\t%s\t%s\t%s\t%d\t%s\t%d\t%s\t%" PRIu32 "\t%" PRIu32 "\t%s\t%d\n",
                                     evpn_seq, vpn_hash_str.c_str(), r_hash_str.c_str(),
                                     router_ip.c_str(),path_hash_str.c_str(), p_hash_str.c_str(),
                                     peer.peer_addr, peer.peer_as, ts.c_str(),
@@ -940,7 +940,7 @@ void msgBus_kafka::update_eVPN(obj_bgp_peer &peer, std::vector<obj_evpn> &vpn,
                                     vpn[i].rd_administrator_subfield.c_str(), vpn[i].rd_assigned_number.c_str(), vpn[i].rd_type,
                                     vpn[i].originating_router_ip_len, vpn[i].originating_router_ip, vpn[i].ethernet_tag_id_hex,
                                     vpn[i].ethernet_segment_identifier, vpn[i].mac_len,
-                                    vpn[i].mac, vpn[i].ip_len, vpn[i].ip, vpn[i].mpls_label_1, vpn[i].mpls_label_2);
+                                    vpn[i].mac, vpn[i].ip_len, vpn[i].ip, vpn[i].mpls_label_1, vpn[i].mpls_label_2, vpn[i].gateway, vpn[i].route_type);
 
                 break;
 
@@ -948,7 +948,7 @@ void msgBus_kafka::update_eVPN(obj_bgp_peer &peer, std::vector<obj_evpn> &vpn,
                 buf_len += snprintf(buf2, sizeof(buf2),
                                     "del\t%" PRIu64 "\t%s\t%s\t%s\t%s\t%s\t%s\t%" PRIu32 "\t%s\t\t\t"
                                             "\t\t\t\t\t\t\t\t\t\t\t\t%" PRIu32
-                                            "\t%d\t%d\t%s:%s\t%d\t%d\t%s\t%s\t%s\t%d\t%s\t%d\t%s\t%" PRIu32 "\t%" PRIu32 "\n",
+                                            "\t%d\t%d\t%s:%s\t%d\t%d\t%s\t%s\t%s\t%d\t%s\t%d\t%s\t%" PRIu32 "\t%" PRIu32 "\t%s\t%d\n",
                                     evpn_seq, vpn_hash_str.c_str(), r_hash_str.c_str(),
                                     router_ip.c_str(),path_hash_str.c_str(), p_hash_str.c_str(),
                                     peer.peer_addr, peer.peer_as, ts.c_str(),
@@ -956,7 +956,7 @@ void msgBus_kafka::update_eVPN(obj_bgp_peer &peer, std::vector<obj_evpn> &vpn,
                                     vpn[i].rd_administrator_subfield.c_str(), vpn[i].rd_assigned_number.c_str(), vpn[i].rd_type,
                                     vpn[i].originating_router_ip_len, vpn[i].originating_router_ip, vpn[i].ethernet_tag_id_hex,
                                     vpn[i].ethernet_segment_identifier, vpn[i].mac_len,
-                                    vpn[i].mac, vpn[i].ip_len, vpn[i].ip, vpn[i].mpls_label_1, vpn[i].mpls_label_2);
+                                    vpn[i].mac, vpn[i].ip_len, vpn[i].ip, vpn[i].mpls_label_1, vpn[i].mpls_label_2, vpn[i].gateway, vpn[i].route_type);
 
                 break;
 

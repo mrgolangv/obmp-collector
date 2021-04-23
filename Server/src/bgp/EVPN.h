@@ -21,6 +21,7 @@ namespace bgp_msg {
             EVPN_ROUTE_TYPE_MAC_IP_ADVERTISMENT,
             EVPN_ROUTE_TYPE_INCLUSIVE_MULTICAST_ETHERNET_TAG,
             EVPN_ROUTE_TYPE_ETHERNET_SEGMENT_ROUTE,
+            EVPN_ROUTE_TYPE_ETHERNET_IP_PREFIX_ROUTE,
         };
 
         /**
@@ -35,7 +36,7 @@ namespace bgp_msg {
          * \param [in]     enable_debug Debug true to enable, false to disable
          */
         EVPN(Logger *logPtr, std::string peerAddr, bool isUnreach,
-                   UpdateMsg::parsed_update_data *parsed_data, bool enable_debug);
+             UpdateMsg::parsed_update_data *parsed_data, bool enable_debug);
         virtual ~EVPN();
 
         /**
@@ -63,7 +64,7 @@ namespace bgp_msg {
          * \param [out]     rd_administrator_subfield  Reference to Administrator subfield
          */
         static void parseRouteDistinguisher(u_char *data_pointer, uint8_t *rd_type, std::string *rd_assigned_number,
-                                       std::string *rd_administrator_subfield);
+                                            std::string *rd_administrator_subfield);
 
         /**
          * Parse all EVPN nlri's

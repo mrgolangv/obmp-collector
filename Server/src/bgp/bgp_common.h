@@ -157,6 +157,8 @@ namespace bgp {
         int             mpls_label_2;
         uint8_t         originating_router_ip_len;
         std::string     originating_router_ip;
+        std::string     gateway;
+        int             route_type;
     };
 
     /*********************************************************************//**
